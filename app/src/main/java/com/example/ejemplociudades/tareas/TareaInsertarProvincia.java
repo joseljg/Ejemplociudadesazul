@@ -1,0 +1,22 @@
+package com.example.ejemplociudades.tareas;
+
+import com.example.ejemplociudades.clases.Provincia;
+import com.example.ejemplociudades.modelos.ProvinciaDB;
+
+import java.util.concurrent.Callable;
+
+
+
+public class TareaInsertarProvincia implements Callable<Boolean> {
+    private Provincia p = null;
+
+    public TareaInsertarProvincia(Provincia p) {
+        this.p = p;
+    }
+
+    @Override
+    public Boolean call() throws Exception {
+        boolean insertadoOK = ProvinciaDB.insertarProvinciaTabla(p);
+        return insertadoOK;
+    }
+}
