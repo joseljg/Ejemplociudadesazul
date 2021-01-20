@@ -3,4 +3,9 @@
     <string name="nueva_provincia">Nueva Provincia</string>
     <string name="nombre_provincia">Nombre Provincia</string>
     <string name="insertar_provincia">Insertar Provincia</string>
+    <string name="actualizar_provincia">Actualizar Provincia</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="borrar_provincia">Borrar Provincia</string>
+    <string name="id_de_la_provincia">ID de la provincia</string>
+    <string name="actualizar_datos">Actualizar Datos</string>
 </resources>
