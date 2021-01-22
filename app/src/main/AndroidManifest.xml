@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EjemploCiudades">
-        <activity android:name=".ActualizarProvinciaActivity2"></activity>
+        <activity android:name=".MostrarCiudadesActivity"></activity>
+        <activity android:name=".ActualizarProvinciaActivity2" />
         <activity android:name=".ActualizarProvinciaActivity1" />
         <activity android:name=".BorrarProvinciaActivity" />
         <activity android:name=".NuevaProvinciaActivity" />
