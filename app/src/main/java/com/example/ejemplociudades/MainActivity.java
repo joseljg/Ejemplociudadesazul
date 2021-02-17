@@ -28,4 +28,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ActualizarProvinciaActivity1.class);
         startActivity(intent);
     }
+
+    public void mostrarCiudades(View view) {
+        Intent intent = new Intent(this, MostrarCiudadesActivity.class);
+        startActivity(intent);
+    }
 }

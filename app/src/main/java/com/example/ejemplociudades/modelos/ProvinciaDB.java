@@ -1,9 +1,12 @@
 package com.example.ejemplociudades.modelos;
 
+import android.graphics.Bitmap;
 import android.util.Log;
 
 import com.example.ejemplociudades.clases.Provincia;
+import com.example.ejemplociudades.utilidades.ImagenesBlobBitmap;
 
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -62,7 +65,9 @@ public class ProvinciaDB {
 			{
 				int idprovincia = resultadosql.getInt("idprovincia");
 				String nombreprovincia = resultadosql.getString("nombre");
-				provinciaEncontrada = new Provincia(idprovincia,nombreprovincia);
+				Blob foto = resultadosql.getBlob("foto");
+				Bitmap fotobm = ImagenesBlobBitmap.blob_to_bitmap(foto,ImagenesBlobBitmap.ancho, ImagenesBlobBitmap.alto);
+				provinciaEncontrada = new Provincia(idprovincia,nombreprovincia, fotobm);
 			}
 			resultadosql.close();
 			conexion.close();
@@ -87,7 +92,9 @@ public class ProvinciaDB {
 			{
 				int idprovincia = resultado.getInt("idprovincia");
 				String nombre = resultado.getString("nombre");
-				Provincia p = new Provincia(idprovincia, nombre);
+				Blob foto = resultado.getBlob("foto");
+				Bitmap fotobm = ImagenesBlobBitmap.blob_to_bitmap(foto,ImagenesBlobBitmap.ancho, ImagenesBlobBitmap.alto);
+				Provincia p = new Provincia(idprovincia, nombre, fotobm);
 				provinciasDevueltas.add(p);
 			}
 			resultado.close();

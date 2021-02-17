@@ -3,21 +3,29 @@ package com.example.ejemplociudades;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.ejemplociudades.clases.Provincia;
 import com.example.ejemplociudades.controladores.ProvinciaController;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class ActualizarProvinciaActivity1 extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     public static final String EXTRA_OBJETO_PROVINCIA = "com.example.ejemplociudades.objetoprovincia";
+    public static final String EXTRA_IMAGEN_PROVINCIA ="com.example.ejemplociudades.fotoprovincia" ;
+    public static final String EXTRA_NOMBRE_PROVINCIA = "com.example.ejemplociudades.nombreprovincia";
+    public static final String EXTRA_ID_PROVINCIA = "com.example.ejemplociudades.idprovincia";
     Spinner sp_actualizarp = null;
     ArrayList<Provincia> provincias = null;
     public static ArrayAdapter<Provincia> adapter = null;
@@ -59,8 +67,18 @@ public class ActualizarProvinciaActivity1 extends AppCompatActivity implements A
         }
         else {
             //--------------------------------------------------
-            Intent intent = new Intent(this, ActualizarProvinciaActivity2.class);
-            intent.putExtra(EXTRA_OBJETO_PROVINCIA, pseleccionada);
+                  Intent intent = new Intent(this, ActualizarProvinciaActivity2.class);
+
+                  Bitmap fotobm = pseleccionada.getFoto();
+                  if(fotobm != null)
+                  {
+                     ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                     fotobm.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                     byte[] byteArray = stream.toByteArray();
+                     intent.putExtra(EXTRA_IMAGEN_PROVINCIA, byteArray);
+                  }
+            intent.putExtra(EXTRA_NOMBRE_PROVINCIA, pseleccionada.getNombre());
+            intent.putExtra(EXTRA_ID_PROVINCIA, pseleccionada.getIdprovincia());
             startActivity(intent);
         }
     }

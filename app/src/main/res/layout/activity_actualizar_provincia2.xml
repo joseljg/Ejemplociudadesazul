@@ -56,4 +56,17 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/edt_actualizarp_nombre"
         app:layout_constraintTop_toBottomOf="@+id/edt_actualizarp_nombre" />
+
+    <ImageView
+        android:id="@+id/img_provincia"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:contentDescription="@string/contentProvincia"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_actualizarp2"
+        app:layout_constraintVertical_bias="0.248"
+        app:srcCompat="@drawable/ciudad" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,6 +22,7 @@ public class CiudadDB {
         Connection conexion = BaseDB.conectarConBaseDeDatos();
         if(conexion == null)
         {
+            Log.i("ciudades","no he podido conectar con la base de datos");
             return null;
         }
         ArrayList<Ciudad> ciudadesDevueltas = new ArrayList<Ciudad>();
